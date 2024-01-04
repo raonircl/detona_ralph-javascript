@@ -36,5 +36,6 @@
 }
 
 .enemy {
-    background-color: #ff0000;
+    background-image: url('../img/Super-Smash-Bros-PNG-Free-Image.png');
+    background-size: cover;
 }
