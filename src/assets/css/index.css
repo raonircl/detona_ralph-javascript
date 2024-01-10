@@ -37,3 +37,35 @@
 a:hover {
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #press-start {
+        position: relative;
+        margin-top: 20px;
+        width: 300px;
+        right: 1px;
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #press-start {
+        position: relative;
+        margin-top: 20px;
+        width: 300px;
+        right: 1px;
+        font-size: 10px;
+    }
+}
