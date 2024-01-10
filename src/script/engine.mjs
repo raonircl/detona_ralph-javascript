@@ -32,13 +32,12 @@ const countDown = () => {
     }
 };
 
-state.values.countDownTimerId = setInterval(countDown, 1000);
 
 const randomSquare = () => {
     state.view.squares.forEach((squere) => {
         squere.classList.remove('enemy');
     });
-
+    
     let randomNumber = Math.floor(Math.random() * 9);
     let randomSquare = state.view.squares[randomNumber];
     randomSquare.classList.add('enemy');
@@ -47,6 +46,7 @@ const randomSquare = () => {
 
 const moveEnemy = () => {
     state.values.timerId = setInterval(randomSquare, state.values.gameVelocity);
+    state.values.countDownTimerId = setInterval(countDown, 1000);
 };
 
 const resetGame = () => {
@@ -70,9 +70,9 @@ const resetGame = () => {
     state.view.score.textContent = state.values.result;
     state.view.lifeView.textContent = state.values.life;
 
+    addListenerHitBox();
     moveEnemy();
     countDown();
-    addListenerHitBox();
 };
 
 const gameOver = () => {
