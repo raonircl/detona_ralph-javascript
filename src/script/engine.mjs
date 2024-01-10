@@ -27,7 +27,7 @@ const countDown = () => {
     state.values.currentTime--;
     state.view.timeLeft.textContent = state.values.currentTime;
 
-    if (state.values.currentTime <= 0 || state.values.life === 0) {
+    if (state.values.currentTime <= 0) {
         gameOver();
     }
 };
@@ -49,34 +49,92 @@ const moveEnemy = () => {
     state.values.timerId = setInterval(randomSquare, state.values.gameVelocity);
 };
 
+const resetGame = () => {
+    clearInterval(state.values.timerId);
+    clearInterval(state.values.countDownTimerId);
+
+    state.values.timerId = null;
+    state.values.countDownTimerId = null;
+    state.values.gameVelocity = 1000;
+    state.values.hitPosition = 0;
+    state.values.result = 0;
+    state.values.currentTime = 60;
+    state.values.point = 10;
+    state.values.life = 3;
+
+    state.view.squares.forEach((square) => {
+        square.classList.remove('enemy');
+    });
+
+    state.view.timeLeft.textContent = state.values.currentTime;
+    state.view.score.textContent = state.values.result;
+    state.view.lifeView.textContent = state.values.life;
+
+    moveEnemy();
+    countDown();
+    addListenerHitBox();
+};
+
 const gameOver = () => {
     stopSound('open');
     endgameSound('endgame');
     clearInterval(state.values.timerId);
     clearInterval(state.values.countDownTimerId);
-    alert(`Fim do jogo! Sua pontuação: ${state.values.result}`);
+
+    const gameOverContainer = document.createElement('div');
+    gameOverContainer.classList.add('game-over-container');
+
+    const gameOverMessage = document.createElement('h2');
+    gameOverMessage.textContent = `Fim do jogo! Sua pontuação: ${state.values.result}`;
+
+    const playAgainButton = document.createElement('button');
+    playAgainButton.textContent = 'Jogar Novamente';
+    playAgainButton.addEventListener('click', () => {
+        resetGame();
+
+        document.body.removeChild(gameOverContainer);
+    });
+
+    gameOverContainer.appendChild(gameOverMessage);
+    gameOverContainer.appendChild(playAgainButton);
+
+    document.body.appendChild(gameOverContainer);
+    disableClickListeners();
 };
 
 const addListenerHitBox = () => {
-    state.view.squares.forEach((square) => {
-        square.addEventListener('click', () => {
-            if (square.id === state.values.hitPosition) {
-                state.values.result += state.values.point;
-                state.view.score.textContent = state.values.result;
-                state.values.hitPosition = null;
-                soundHit();
-            } else {
-                state.values.life -= 1;
-                state.view.lifeView.textContent = state.values.life;
-                soundHitFail();
-            }
+    if (!document.body.classList.contains('game-over')) {
+        state.view.squares.forEach((square) => {
+            square.addEventListener('click', handleSquareClick);
         });
+    }
+};
+
+const handleSquareClick = (event) => {
+    const square = event.target;
+    if (square.id === state.values.hitPosition) {
+        state.values.result += state.values.point;
+        state.view.score.textContent = state.values.result;
+        state.values.hitPosition = null;
+        soundHit();
+    } else {
+        state.values.life -= 1;
+        state.view.lifeView.textContent = state.values.life;
+        soundHitFail();
+
+        if (state.values.life === 0) {
+            gameOver();
+        }
+    }
+};
+
+const disableClickListeners = () => {
+    state.view.squares.forEach((square) => {
+        square.removeEventListener('click', handleSquareClick);
     });
 };
 
-
 const initialize = () => {
-    countDown();
     moveEnemy();
     addListenerHitBox();
 };
