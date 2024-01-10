@@ -85,10 +85,10 @@ const gameOver = () => {
     gameOverContainer.classList.add('game-over-container');
 
     const gameOverMessage = document.createElement('h2');
-    gameOverMessage.textContent = `Fim do jogo! Sua pontuação: ${state.values.result}`;
+    gameOverMessage.textContent = `Game Over! Score: ${state.values.result}`;
 
     const playAgainButton = document.createElement('button');
-    playAgainButton.textContent = 'Jogar Novamente';
+    playAgainButton.textContent = 'New Game';
     playAgainButton.addEventListener('click', () => {
         resetGame();
 

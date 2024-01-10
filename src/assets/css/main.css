@@ -62,3 +62,7 @@
     border-radius: 10px;
     color: white;
 }
+
+.game-over-container button {
+    margin-top: 20px;
+}
