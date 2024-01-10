@@ -18,6 +18,10 @@
     border: 5px solid #ffd700;
 }
 
+.menu h2 {
+    margin-top: 10px;
+}
+
 .menu-lives {
     display: flex;
     align-items: center;
