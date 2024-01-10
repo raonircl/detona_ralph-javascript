@@ -2,7 +2,7 @@ export const soundHit = () => {
     const clickSound = document.getElementById('clickSound');
     clickSound.currentTime = 0;
     clickSound.play().catch(error => {
-        console.error('Erro ao reproduzir som de hit', error);
+        console.error('Error when playing sound hit', error);
     });
 };
 
@@ -10,7 +10,7 @@ export const soundHitFail = () => {
     const clickSound = document.getElementById('clickSoundFail');
     clickSound.currentTime = 0;
     clickSound.play().catch(error => {
-        console.error('Erro ao reproduzir som de hitFail', error);
+        console.error('Error when playing sound hitFail', error);
     });
 };
 
@@ -18,7 +18,7 @@ export const endgameSound = (soundId) => {
     const audioElement = document.getElementById(soundId);
     audioElement.currentTime = 0;
     audioElement.play().catch(error => {
-        console.error(`Erro ao reproduzir som "endgame":`, error);
+        console.error(`Error when playing sound endgame:`, error);
     });
 };
 
