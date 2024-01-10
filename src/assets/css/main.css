@@ -66,3 +66,51 @@
 .game-over-container button {
     margin-top: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+    .menu {
+        font-size: small;
+        padding: 10px;
+        height: 100px;
+    }
+
+    .square {
+        height: 150px;
+        width: 110px;
+        position: relative;
+        top: 60px;
+        border: 1px solid #000000;
+        background-color: #696969;
+    }
+
+    .game-over-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .menu {
+        font-size: small;
+        padding: 10px;
+        height: 100px;
+    }
+
+    .square {
+        height: 150px;
+        width: 110px;
+        position: relative;
+        top: 60px;
+        border: 1px solid #000000;
+        background-color: #696969;
+    }
+
+    .game-over-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
