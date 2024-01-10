@@ -1,3 +1,4 @@
+import { removeLifeHearts, resetLifeHearts } from "../assets/script/life_heart.mjs";
 import { endgameSound, soundHit, soundHitFail, stopSound } from "../assets/script/sound.mjs";
 import state from "../assets/script/states.mjs";
 
@@ -50,6 +51,7 @@ const resetGame = () => {
     addListenerHitBox();
     moveEnemy();
     countDown();
+    resetLifeHearts();
 };
 
 const gameOver = () => {
@@ -97,11 +99,12 @@ const handleSquareClick = (event) => {
         soundHit();
     } else {
         state.values.life -= 1;
-        state.view.lifeView.textContent = state.values.life;
         soundHitFail();
-
-        if (state.values.life === 0) {
+        
+        if (state.values.life <= 0) {
             gameOver();
+        } else {
+            removeLifeHearts();
         }
     }
 };

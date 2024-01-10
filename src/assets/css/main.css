@@ -26,6 +26,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 105px;
+    height: 30px;
+}
+
+.life-heart {
+    height: 30px;
+    margin-right: 5px;
 }
 
 #menu-label {
@@ -120,5 +127,11 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .enemy {
+        background-size: 35vw 15vh;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 }
