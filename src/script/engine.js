@@ -57,7 +57,7 @@ const countDown = () => {
     state.values.currentTime--;
     state.view.timeLeft.textContent = state.values.currentTime;
 
-    if (state.values.currentTime <= 0) {
+    if (state.values.currentTime <= 0 || state.values.life === 0) {
         gameOver();
     }
 };
@@ -85,13 +85,6 @@ const gameOver = () => {
     clearInterval(state.values.timerId);
     clearInterval(state.values.countDownTimerId);
     alert(`Fim do jogo! Sua pontuação: ${state.values.result}`);
-    removeClickListeners();
-};
-
-const removeClickListeners = () => {
-    state.view.squares.forEach((square) => {
-        square.removeEventListener('click', () => handleSquareClick(square));
-    });
 };
 
 const addListenerHitBox = () => {
