@@ -1,4 +1,5 @@
 import { endgameSound, soundHit, soundHitFail, stopSound } from "../assets/script/sound.mjs";
+import { playSound } from "../assets/script/sound.mjs";
 import state from "../assets/script/states.mjs";
 
 const countDown = () => {
@@ -50,6 +51,7 @@ const resetGame = () => {
     addListenerHitBox();
     moveEnemy();
     countDown();
+    playSound();
 };
 
 const gameOver = () => {
@@ -114,6 +116,7 @@ const disableClickListeners = () => {
 const initialize = () => {
     moveEnemy();
     addListenerHitBox();
+    playSound();
 };
 
 initialize();
