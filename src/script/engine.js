@@ -85,6 +85,13 @@ const gameOver = () => {
     clearInterval(state.values.timerId);
     clearInterval(state.values.countDownTimerId);
     alert(`Fim do jogo! Sua pontuação: ${state.values.result}`);
+    removeClickListeners();
+};
+
+const removeClickListeners = () => {
+    state.view.squares.forEach((square) => {
+        square.removeEventListener('click', () => handleSquareClick(square));
+    });
 };
 
 const addListenerHitBox = () => {
