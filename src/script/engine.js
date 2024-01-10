@@ -26,7 +26,7 @@ const countDown = () => {
     state.view.timeLeft.textContent = state.values.currentTime;
 
     if (state.values.currentTime <= 0) {
-        alert('Game over! O seu resultado foi: ', state.values.result);
+        gameOver();
     }
 };
 
@@ -48,7 +48,9 @@ const moveEnemy = () => {
 };
 
 const gameOver = () => {
-    
+    clearInterval(state.values.timerId);
+    clearInterval(state.values.countDownTimerId);
+    alert(`Fim do jogo! Sua pontuação: ${state.values.result}`);
 };
 
 const addListenerHitBox = () => {
