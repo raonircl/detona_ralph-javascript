@@ -48,7 +48,9 @@
 
 .enemy {
     background-image: url('../img/Super-Smash-Bros-PNG-Free-Image.png');
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .game-over-container {
@@ -88,6 +90,12 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .enemy {
+        background-size: 35vw 15vh;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 }
 
