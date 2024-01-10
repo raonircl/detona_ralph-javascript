@@ -27,3 +27,11 @@ export const stopSound = (soundId) => {
     audioElement.pause();
     audioElement.currentTime = 0;
 };
+
+export const playSound = () => {
+    const backgroundMusic = document.getElementById('open');
+    backgroundMusic.currentTime = 0;
+    backgroundMusic.play().catch(error => {
+        console.error(`Error when playing background music open:`, error);
+    });
+}
