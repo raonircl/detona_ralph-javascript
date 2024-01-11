@@ -23,11 +23,16 @@
 }
 
 .menu-lives {
+    
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 105px;
+    width: 120px;
     height: 30px;
+    background-color: #696969;
+    border-radius: 10px;
+    border: 1px solid #ffd700;
+    padding: 20px;
 }
 
 .life-heart {

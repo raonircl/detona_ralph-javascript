@@ -1,13 +1,15 @@
 import state from "./states.mjs";
 
 export const removeLifeHearts = () => {
-    const lifeContainer = document.querySelector('.menu-lives');
-    const remainingLives = state.values.life;
     const lifeElements = document.querySelectorAll('.life-heart');
+    
+    const emptyHeartSrc = '../assets/img/empty-heart.png';
 
-    while (lifeElements.length > remainingLives) {
-        lifeContainer.removeChild(lifeElements[lifeElements.length - 1]);
-    }
+    lifeElements.forEach((lifeElement, index) => {
+        if (index >= state.values.life) {
+            lifeElement.src = emptyHeartSrc;
+        }
+    });
 };
 
 export const resetLifeHearts = () => {
