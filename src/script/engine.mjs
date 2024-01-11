@@ -104,9 +104,7 @@ const handleSquareClick = (event) => {
         
         if (state.values.life <= 0) {
             gameOver();
-        } 
-        // else {
-        // }
+        }
     }
 };
 
