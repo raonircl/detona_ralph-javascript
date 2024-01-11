@@ -34,7 +34,7 @@
     color: inherit;
 }
 
-a:hover {
+#press-start a:hover {
     cursor: pointer;
 }
 
