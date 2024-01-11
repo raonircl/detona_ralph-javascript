@@ -99,13 +99,14 @@ const handleSquareClick = (event) => {
         soundHit();
     } else {
         state.values.life -= 1;
+        removeLifeHearts();
         soundHitFail();
         
         if (state.values.life <= 0) {
             gameOver();
-        } else {
-            removeLifeHearts();
-        }
+        } 
+        // else {
+        // }
     }
 };
 

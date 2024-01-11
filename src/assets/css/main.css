@@ -23,11 +23,10 @@
 }
 
 .menu-lives {
-    
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 120px;
+    justify-content: space-around;
+    width: 130px;
     height: 30px;
     background-color: #696969;
     border-radius: 10px;
