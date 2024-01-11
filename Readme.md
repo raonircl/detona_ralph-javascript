@@ -23,7 +23,10 @@ Este é um jogo simples de agilidade inspirado em Detona Ralph. Seu objetivo é 
 https://detona-ralph-project.netlify.app/
 
 ## Imagens
-
+![Alt text](image.png)
+![Alt text](image-1.png)
+![Alt text](image-2.png)
+![Alt text](image-3.png)
 
 
 ## Estrutura de Diretórios
@@ -84,6 +87,7 @@ projeto/
 - CSS3
 - JavaScript (ES6+)
 - jQuery
+- Trello
 
 ## Contribuição
 
