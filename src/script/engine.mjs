@@ -2,6 +2,7 @@ import { handleVanellopeClick, showCake } from "../assets/script/extra_life.mjs"
 import { gameScore } from "../assets/script/gameScore.mjs";
 import { gameSpeed } from "../assets/script/gameSpeed.mjs";
 import { removeLifeHearts, resetLifeHearts } from "../assets/script/life_heart.mjs";
+import { capturePlayerName } from "../assets/script/name_player.mjs";
 import { endgameSound, soundHit, soundHitFail, stopSound } from "../assets/script/sound.mjs";
 import state from "../assets/script/states.mjs";
 
@@ -16,7 +17,7 @@ const countDown = () => {
 
 setInterval(() => {
     if (state.values.life === 0 || state.values.currentTime < 20) {
-        return false;
+        return;
     } else if (state.values.life !== 3) {
         showCake();
     }
@@ -65,17 +66,22 @@ const resetGame = () => {
     resetLifeHearts();
 };
 
-const gameOver = () => {
+const gameOver = async () => {
     stopSound('open');
     endgameSound('endgame');
     clearInterval(state.values.timerId);
     clearInterval(state.values.countDownTimerId);
+
+    const playerName = await capturePlayerName();
 
     const gameOverContainer = document.createElement('div');
     gameOverContainer.classList.add('game-over-container');
 
     const gameOverMessage = document.createElement('h2');
     gameOverMessage.textContent = `Game Over! Score: ${state.values.result}`;
+
+    const playerNameDisplay = document.createElement('p');
+    playerNameDisplay.textContent = `Player: ${playerName}`;
 
     const playAgainButton = document.createElement('button');
     playAgainButton.textContent = 'New Game';
