@@ -112,12 +112,10 @@ const handleSquareClick = (event) => {
 
         if (state.values.click % 100 === 0) {
             gameSpeed();
-            console.log('entrou na velocidade', state.values.gameVelocity);
         }
         
         if (state.values.result > 100) {
             gameScore();
-            console.log('entrou na pontuação',state.values.point);
         }
 
     } else if (square.id === state.values.hitPositionLife && state.values.life < 3) {
