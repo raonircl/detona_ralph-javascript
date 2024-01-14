@@ -1,4 +1,5 @@
 import { handleVanellopeClick, showCake } from "../assets/script/extra_life.mjs";
+import { gameScore } from "../assets/script/gameScore.mjs";
 import { gameSpeed } from "../assets/script/gameSpeed.mjs";
 import { removeLifeHearts, resetLifeHearts } from "../assets/script/life_heart.mjs";
 import { endgameSound, soundHit, soundHitFail, stopSound } from "../assets/script/sound.mjs";
@@ -106,10 +107,17 @@ const handleSquareClick = (event) => {
         state.values.result += state.values.point;
         state.view.score.textContent = state.values.result;
         state.values.hitPosition = null;
+        state.values.click++;
         soundHit();
 
-        if (state.values.result % 500 === 0) {
+        if (state.values.click % 100 === 0) {
             gameSpeed();
+            console.log('entrou na velocidade', state.values.gameVelocity);
+        }
+        
+        if (state.values.result > 100) {
+            gameScore();
+            console.log('entrou na pontuação',state.values.point);
         }
 
     } else if (square.id === state.values.hitPositionLife && state.values.life < 3) {

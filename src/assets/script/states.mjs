@@ -15,7 +15,8 @@ const state = {
         result: 0,
         currentTime: 61,
         point: 10,
-        life: 3
+        life: 3,
+        click: 0
     }
 };
 
