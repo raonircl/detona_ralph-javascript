@@ -64,6 +64,13 @@
     background-position: center;
 }
 
+.cake {
+    background-image: url('../img/cake.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .game-over-container {
     position: fixed;
     top: 50%;

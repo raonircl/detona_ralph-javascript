@@ -11,6 +11,7 @@ const state = {
         countDownTimerId: null,
         gameVelocity: 1000,
         hitPosition: 0,
+        hitPositionLife: 0,
         result: 0,
         currentTime: 61,
         point: 10,

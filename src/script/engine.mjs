@@ -1,3 +1,4 @@
+import { handleVanellopeClick, showCake } from "../assets/script/extra_life.mjs";
 import { removeLifeHearts, resetLifeHearts } from "../assets/script/life_heart.mjs";
 import { endgameSound, soundHit, soundHitFail, stopSound } from "../assets/script/sound.mjs";
 import state from "../assets/script/states.mjs";
@@ -10,6 +11,14 @@ const countDown = () => {
         gameOver();
     }
 };
+
+setInterval(() => {
+    if (state.values.life === 0) {
+        return false;
+    } else if (state.values.life !== 3) {
+        showCake();
+    }
+}, 20000);
 
 const randomSquare = () => {
     state.view.squares.forEach((squere) => {
@@ -97,6 +106,9 @@ const handleSquareClick = (event) => {
         state.view.score.textContent = state.values.result;
         state.values.hitPosition = null;
         soundHit();
+    } else if (square.id === state.values.hitPositionLife && state.values.life < 3) {
+        soundHit();
+        handleVanellopeClick();
     } else {
         state.values.life -= 1;
         removeLifeHearts();

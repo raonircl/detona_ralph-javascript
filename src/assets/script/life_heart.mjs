@@ -12,6 +12,18 @@ export const removeLifeHearts = () => {
     });
 };
 
+export const addLifeHearts = () => {
+    const lifeElements = document.querySelectorAll('.life-heart');
+    
+    const fullHeartSrc = '../assets/img/heart.png';
+
+    lifeElements.forEach((lifeElement, index) => {
+        if (index < state.values.life) {
+            lifeElement.src = fullHeartSrc;
+        } 
+    });
+};
+
 export const resetLifeHearts = () => {
     const lifeContainer = document.querySelector('.menu-lives');
     lifeContainer.innerHTML = '';
