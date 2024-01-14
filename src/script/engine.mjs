@@ -1,4 +1,5 @@
 import { handleVanellopeClick, showCake } from "../assets/script/extra_life.mjs";
+import { gameSpeed } from "../assets/script/gameSpeed.mjs";
 import { removeLifeHearts, resetLifeHearts } from "../assets/script/life_heart.mjs";
 import { endgameSound, soundHit, soundHitFail, stopSound } from "../assets/script/sound.mjs";
 import state from "../assets/script/states.mjs";
@@ -13,14 +14,14 @@ const countDown = () => {
 };
 
 setInterval(() => {
-    if (state.values.life === 0) {
+    if (state.values.life === 0 || state.values.currentTime < 20) {
         return false;
     } else if (state.values.life !== 3) {
         showCake();
     }
 }, 20000);
 
-const randomSquare = () => {
+export const randomSquare = () => {
     state.view.squares.forEach((squere) => {
         squere.classList.remove('enemy');
     });
@@ -106,6 +107,11 @@ const handleSquareClick = (event) => {
         state.view.score.textContent = state.values.result;
         state.values.hitPosition = null;
         soundHit();
+
+        if (state.values.result % 500 === 0) {
+            gameSpeed();
+        }
+
     } else if (square.id === state.values.hitPositionLife && state.values.life < 3) {
         soundHit();
         handleVanellopeClick();
