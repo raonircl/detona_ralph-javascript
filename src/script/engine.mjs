@@ -2,8 +2,8 @@ import { handleVanellopeClick, showCake } from "../assets/script/extra_life.mjs"
 import { gameScore } from "../assets/script/gameScore.mjs";
 import { gameSpeed } from "../assets/script/gameSpeed.mjs";
 import { removeLifeHearts, resetLifeHearts } from "../assets/script/life_heart.mjs";
-import { capturePlayerData } from "../assets/script/name_player.mjs";
 import { addPlayer } from "../assets/script/playerData.mjs";
+import { rank } from "../assets/script/rank.mjs";
 import { endgameSound, soundHit, soundHitFail, stopSound } from "../assets/script/sound.mjs";
 import state from "../assets/script/states.mjs";
 
@@ -75,6 +75,7 @@ const gameOver = async () => {
 
     try {
         await addPlayer();
+        await rank();
 
         const gameOverContainer = document.createElement('div');
         gameOverContainer.classList.add('game-over-container');

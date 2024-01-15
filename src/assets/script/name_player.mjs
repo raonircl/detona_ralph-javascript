@@ -1,4 +1,3 @@
-import { addPlayer } from "./playerData.mjs";
 import state from "./states.mjs";
 
 export const capturePlayerData = () => {
