@@ -1,12 +1,16 @@
-export const capturePlayerName = () => {
+import { addPlayer } from "./playerData.mjs";
+import state from "./states.mjs";
+
+export const capturePlayerData = () => {
     return new Promise((resolve) => {
         const nameContainer = document.createElement('div');
         nameContainer.classList.add('name-container');
         nameContainer.innerHTML = `
             <form id="playerNameForm">
-                <label for="playerName">Digite seu nome (3 caracteres): </label>
-                <input type="text" id="playerName" maxlength="3" pattern="[A-Za-z]{3}" required>
-                <button type="submit">Confirmar</button>
+                <label for="playerName">Your Name:</label>
+                <input type="text" id="playerName" maxlength="3" placeholder="AAA">
+                <input type="hidden" id="playerScore" value="${state.values.result}">
+                <button type="submit">Save</button>
             </form>
         `;
 
@@ -14,10 +18,18 @@ export const capturePlayerName = () => {
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
-            const input = form.querySelector('#playerName');
-            const playerName = input.value.toUpperCase().slice(0, 3) || 'AAA';
-            resolve(playerName);
+            const inputName = form.querySelector('#playerName');
+            const inputScore = form.querySelector('#playerScore');
+            const playerName = inputName.value.toUpperCase().slice(0, 3) || 'AAA';
+            const playerScore = parseInt(inputScore.value) || 0;
 
+            const playerData = {
+                player: playerName,
+                score: playerScore
+            };
+
+            resolve(playerData);
+            console.log('Dados do jogador', playerData);
             document.body.removeChild(nameContainer);
         });
 

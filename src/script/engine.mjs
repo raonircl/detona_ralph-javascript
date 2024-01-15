@@ -2,7 +2,8 @@ import { handleVanellopeClick, showCake } from "../assets/script/extra_life.mjs"
 import { gameScore } from "../assets/script/gameScore.mjs";
 import { gameSpeed } from "../assets/script/gameSpeed.mjs";
 import { removeLifeHearts, resetLifeHearts } from "../assets/script/life_heart.mjs";
-import { capturePlayerName } from "../assets/script/name_player.mjs";
+import { capturePlayerData } from "../assets/script/name_player.mjs";
+import { addPlayer } from "../assets/script/playerData.mjs";
 import { endgameSound, soundHit, soundHitFail, stopSound } from "../assets/script/sound.mjs";
 import state from "../assets/script/states.mjs";
 
@@ -72,32 +73,34 @@ const gameOver = async () => {
     clearInterval(state.values.timerId);
     clearInterval(state.values.countDownTimerId);
 
-    const playerName = await capturePlayerName();
+    try {
+        await addPlayer();
 
-    const gameOverContainer = document.createElement('div');
-    gameOverContainer.classList.add('game-over-container');
+        const gameOverContainer = document.createElement('div');
+        gameOverContainer.classList.add('game-over-container');
 
-    const gameOverMessage = document.createElement('h2');
-    gameOverMessage.textContent = `Game Over! Score: ${state.values.result}`;
+        const gameOverMessage = document.createElement('h2');
+        gameOverMessage.textContent = `Game Over! Score: ${state.values.result}`;
 
-    const playerNameDisplay = document.createElement('p');
-    playerNameDisplay.textContent = `Player: ${playerName}`;
+        const playAgainButton = document.createElement('button');
+        playAgainButton.textContent = 'New Game';
+        playAgainButton.addEventListener('click', () => {
+            resetGame();
+            stopSound('endgame');
 
-    const playAgainButton = document.createElement('button');
-    playAgainButton.textContent = 'New Game';
-    playAgainButton.addEventListener('click', () => {
-        resetGame();
-        stopSound('endgame');
-        
-        document.body.removeChild(gameOverContainer);
-    });
+            document.body.removeChild(gameOverContainer);
+        });
 
-    gameOverContainer.appendChild(gameOverMessage);
-    gameOverContainer.appendChild(playAgainButton);
+        gameOverContainer.appendChild(gameOverMessage);
+        gameOverContainer.appendChild(playAgainButton);
 
-    document.body.appendChild(gameOverContainer);
-    disableClickListeners();
+        document.body.appendChild(gameOverContainer);
+        disableClickListeners();
+    } catch (error) {
+        console.error('Game over error', error);
+    }
 };
+
 
 const addListenerHitBox = () => {
     if (!document.body.classList.contains('game-over')) {
