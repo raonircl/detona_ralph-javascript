@@ -5,7 +5,7 @@ export const addPlayer = async () => {
 
     console.log('Dados do jogador antes da chamada à API:', playerData);
 
-    fetch('http://localhost:3000/player', {
+    fetch('https://cyan-puzzled-bandicoot.cyclic.app/player', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
