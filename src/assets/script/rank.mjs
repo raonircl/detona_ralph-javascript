@@ -14,7 +14,7 @@ export const rank = () => {
 
     const fetchTopRank = async () => {
         try {
-            const response = await fetch('https://ultramarine-salamander-kilt.cyclic.app/player');
+            const response = await fetch('https://ill-pear-clam-slip.cyclic.app/player');
             const data = await response.json();
     
             const playersArray = Array.isArray(data) ? data : Object.values(data);

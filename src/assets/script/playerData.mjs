@@ -3,7 +3,7 @@ import { capturePlayerData } from "./name_player.mjs";
 export const addPlayer = async () => {
     const playerData = await capturePlayerData();
 
-    fetch('https://ultramarine-salamander-kilt.cyclic.app/player', {
+    fetch('https://ill-pear-clam-slip.cyclic.app/player', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
