@@ -3,7 +3,14 @@
 
 # Detona Ralph - Jogo de Agilidade
 
-Este é um jogo simples de agilidade inspirado em Detona Ralph. Seu objetivo é clicar no quadrado certo antes que o tempo acabe!
+O jogo Detona Ralph é um empolgante desafio de agilidade desenvolvido utilizando JavaScript ES6, Node.js, CSS e HTML responsivo. Inspirado no universo do filme Detona Ralph, o jogo apresenta Ralph como personagem jogável, proporcionando aos jogadores uma experiência envolvente.
+
+#### Recursos:
+
+- Personagem jogável: Ralph.
+- Elementos do jogo: vida, vida extra,pontos e timer.
+- Progressão dinâmica: aumento - gradativo de pontos e velocidade do jogo.
+- API de Rank: Uma API simples para armazenar e exibir as melhores pontuações em ordem decrescente.
 
 ## Instruções de Instalação
 
@@ -87,6 +94,7 @@ projeto/
 - CSS3
 - JavaScript (ES6+)
 - jQuery
+- Node.js
 - Trello
 
 ## Contribuição

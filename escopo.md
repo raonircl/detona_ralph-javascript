@@ -2,7 +2,7 @@
 
 ## Visão Geral do Projeto
 
-Desenvolver um jogo simples de agilidade inspirado em Detona Ralph. O jogo consiste em clicar no quadrado certo antes que o tempo acabe. O projeto utilizará HTML5, CSS3, JavaScript (ES6+), e jQuery.
+Desenvolver um jogo simples de agilidade inspirado em Detona Ralph. O jogo consiste em clicar no quadrado certo antes que o tempo acabe. O projeto utilizará HTML5, CSS3, JavaScript (ES6+), Nodejs e jQuery.
 
 ## Funcionalidades Principais
 
@@ -39,10 +39,32 @@ Desenvolver um jogo simples de agilidade inspirado em Detona Ralph. O jogo consi
    - Iniciar o jogo ao clicar no botão "Press Start".
    - Reiniciar o jogo após o término.
 
+9. **Aumento de velocidade:**
+   - Aumento de velocidade do jogo.
+
+10. **Elemento de vida extra:**
+   - Adicionar mais um coração ao clicar no elemento de vida extra.
+
+11. **Aumento da pontuação:**
+   - Aumento da pontuação dinâmica durante o jogo.
+
+12. **Rank de jogadores:**
+   - Salva e mostra a pontuação dos jogadores.
+
+13. **API para cadastrar jogadores e a pontuação:**
+   - Salva e mostra a pontuação dos jogadores.
+
+14. **Banco de dados relacional:**
+   - Banco em postgres.
+
 ## Tecnologias Utilizadas Para Desenvolvimento
 
 - HTML5
 - CSS3
 - JavaScript (ES6+)
 - jQuery
+- Nodejs
+- Netlify
+- Cyclic
+
 ---
