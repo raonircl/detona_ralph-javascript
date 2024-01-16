@@ -136,10 +136,13 @@
     }
 
     .game-over-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        width: 300px;
+        font-size: 14px;
+    }
+
+    .player-toplist {
+        width: 300px;
+        height: auto;
     }
 
     .enemy {
