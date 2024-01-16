@@ -5,7 +5,7 @@ export const rank = () => {
     const heading = document.createElement('h1');
     heading.textContent = 'Rank';
 
-    const playerList = document.createElement('p');
+    const playerList = document.createElement('ul');
     playerList.id = 'playerList';
 
     playerTopRankList.appendChild(heading);

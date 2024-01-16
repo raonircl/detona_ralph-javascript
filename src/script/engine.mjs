@@ -90,6 +90,8 @@ const gameOver = async () => {
             stopSound('endgame');
 
             document.body.removeChild(gameOverContainer);
+            const playerTopRankList = document.querySelector('.player-toplist');
+            document.body.removeChild(playerTopRankList);
         });
 
         gameOverContainer.appendChild(gameOverMessage);

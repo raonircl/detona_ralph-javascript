@@ -111,11 +111,10 @@
     color: white;
 }
 
-.player-toplist li {
-    flex-direction: column;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.player-toplist ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: justify;
 }
 
 
