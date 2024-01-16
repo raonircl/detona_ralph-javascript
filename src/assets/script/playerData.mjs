@@ -3,8 +3,6 @@ import { capturePlayerData } from "./name_player.mjs";
 export const addPlayer = async () => {
     const playerData = await capturePlayerData();
 
-    console.log('Dados do jogador antes da chamada à API:', playerData);
-
     fetch('https://ultramarine-salamander-kilt.cyclic.app/player', {
         method: 'POST',
         headers: {

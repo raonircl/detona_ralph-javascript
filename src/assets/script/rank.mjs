@@ -31,8 +31,6 @@ export const rank = () => {
                         console.error('Dados inválidos para o jogador:', player);
                     }
                 });
-            } else {
-                console.error('Resposta da API não possui a estrutura esperada:', data);
             }
         } catch (error) {
             console.error('Erro ao buscar jogadores:', error);

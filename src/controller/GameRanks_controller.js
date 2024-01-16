@@ -3,8 +3,7 @@ const knex = require('../config/connection');
 const addPlayer = async (req, res) => {
     try {
         const { player, score } = req.body;
-        console.log(player, score);
-        
+                
         if (!player || !score) {
             return res.status(400).json({ error: 'all fields must be filled.' });
         }

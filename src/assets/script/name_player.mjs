@@ -28,7 +28,6 @@ export const capturePlayerData = () => {
             };
 
             resolve(playerData);
-            console.log('Dados do jogador', playerData);
             document.body.removeChild(nameContainer);
         });
 
