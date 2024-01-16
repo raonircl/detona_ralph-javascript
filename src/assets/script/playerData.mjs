@@ -12,9 +12,9 @@ export const addPlayer = async () => {
     })
     .then((response) => response.json())
     .then((data) => {
-        console.log('Resposta da API:', data);
+        console.log('API Response:', data);
     })
     .catch((error) => {
-        console.error('Erro ao chamar a API:', error);
+        console.error('Error when calling the API:', error);
     });
 };

@@ -28,12 +28,12 @@ export const rank = () => {
                         listItem.textContent = `${player.rank}:${player.name} - ${player.score}`;
                         playerList.appendChild(listItem);
                     } else {
-                        console.error('Dados inválidos para o jogador:', player);
+                        console.error('Invalid player data:', player);
                     }
                 });
             }
         } catch (error) {
-            console.error('Erro ao buscar jogadores:', error);
+            console.error('Error when searching for players:', error);
         }
     };
     
